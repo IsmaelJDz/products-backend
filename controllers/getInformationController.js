@@ -18,17 +18,21 @@ exports.getInformation = async (req, res) => {
 
   const { search } = req.query;
 
-  const searchProducts = await Products.find({
-    title: { $regex: search, $options: "i" },
-  }).limit(5);
+  if (search !== "" && search.length > 3) {
+    const searchProducts = await Products.find({
+      title: { $regex: search, $options: "i" },
+    }).limit(5);
 
-  try {
-    const ReqFormatData = getDataResult(searchProducts);
-    return res.status(201).json(ReqFormatData);
-  } catch (error) {
-    return res
-      .status(500)
-      .json({ errors: "server cannot response your request! 🙁" });
+    try {
+      const ReqFormatData = getDataResult(searchProducts);
+      return res.status(200).json(ReqFormatData);
+    } catch (error) {
+      return res
+        .status(500)
+        .json({ errors: "server cannot response your request! 🙁" });
+    }
+  } else {
+    return res.status(201).json({ data: "item not found, try again! 🙁" });
   }
 };
 
