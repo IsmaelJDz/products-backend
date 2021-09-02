@@ -1,4 +1,4 @@
-const { Products, Info } = require("../models/Products");
+const { Products } = require("../models/Products");
 const { validationResult } = require("express-validator");
 const { getDataResult, getDataResultProduct } = require("../utils");
 require("dotenv").config({ path: "var.env" });

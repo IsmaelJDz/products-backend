@@ -25,6 +25,12 @@ const getDataResultProduct = dbData => {
         name: "Ismael",
         lastname: "BRojas",
       },
+      categories: [
+        "Electrónica, Audio y Video",
+        "iPod",
+        "Reproductores",
+        "iPod touch",
+      ],
       ...dbData,
     },
   ];
