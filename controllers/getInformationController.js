@@ -23,8 +23,10 @@ exports.getInformation = async (req, res) => {
       title: { $regex: search, $options: "i" },
     }).limit(5);
 
+    console.log("cat", search);
+
     try {
-      const ReqFormatData = getDataResult(searchProducts);
+      const ReqFormatData = getDataResult(searchProducts, search);
       return res.status(200).json(ReqFormatData);
     } catch (error) {
       return res

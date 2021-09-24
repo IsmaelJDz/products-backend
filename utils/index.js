@@ -1,16 +1,23 @@
-const getDataResult = dbData => {
+const getDataResult = (dbData, search) => {
+  const formatText = search.toLowerCase();
+
+  console.log(formatText);
+
   let resultData = [
     {
       author: {
         name: "Ismael",
         lastname: "BRojas",
       },
-      categories: [
-        "Electrónica, Audio y Video",
-        "iPod",
-        "Reproductores",
-        "iPod touch",
-      ],
+      categories:
+        formatText === "ipod"
+          ? [
+              "Electrónica, Audio y Video",
+              "iPod",
+              "Reproductores",
+              "iPod touch",
+            ]
+          : ["Electrónica, Audio y Video", "iPhone", "Reproductores", "iPhone"],
       items: [...dbData],
     },
   ];
@@ -19,18 +26,23 @@ const getDataResult = dbData => {
 };
 
 const getDataResultProduct = dbData => {
+  const categoryFormat = dbData.category;
+
   let resultDataProduct = [
     {
       author: {
         name: "Ismael",
         lastname: "BRojas",
       },
-      categories: [
-        "Electrónica, Audio y Video",
-        "iPod",
-        "Reproductores",
-        "iPod touch",
-      ],
+      categories:
+        categoryFormat === "ipod"
+          ? [
+              "Electrónica, Audio y Video",
+              "iPod",
+              "Reproductores",
+              "iPod touch",
+            ]
+          : ["Electrónica, Audio y Video", "iPhone", "Reproductores", "iPhone"],
       ...dbData,
     },
   ];

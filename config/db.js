@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-require("dotenv").config({ path: "var.env" });
+require("dotenv").config({ path: ".env.local" });
 
 /**
  * Connect app to DataBase
